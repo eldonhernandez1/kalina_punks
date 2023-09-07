@@ -18,7 +18,7 @@ async function main() {
   const NFT = await hre.ethers.getContractFactory('NFT')
   let nft = await NFT.deploy(NAME, SYMBOL, COST, MAX_SUPPLY, NFT_MINT_DATE, IPFS_METADATA_URI)
 
-  await NFT.deploy()
+  await nft.deployed()
   console.log(`Token deployed to: ${nft.address}\n`)
 }
 
