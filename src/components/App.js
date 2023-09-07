@@ -7,7 +7,7 @@ import Navigation from './Navigation';
 import Loading from './Loading';
 
 // ABIs: Import your contract ABIs here
-// import TOKEN_ABI from '../abis/Token.json'
+import NFT_ABI from '../abis/NFT.json'
 
 // Config: Import your network config here
 // import config from '../config.json';

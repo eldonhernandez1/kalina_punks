@@ -19,7 +19,7 @@ async function main() {
   let nft = await NFT.deploy(NAME, SYMBOL, COST, MAX_SUPPLY, NFT_MINT_DATE, IPFS_METADATA_URI)
 
   await nft.deployed()
-  console.log(`Token deployed to: ${nft.address}\n`)
+  console.log(`NFT deployed to: ${nft.address}\n`)
 }
 
 // We recommend this pattern to be able to use async/await everywhere
