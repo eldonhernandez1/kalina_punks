@@ -6,6 +6,7 @@ import { ethers } from 'ethers'
 // Components
 import Navigation from './Navigation';
 import Data from './Data';
+import Mint from './Mint';
 import Loading from './Loading';
 
 // Hero image
@@ -83,7 +84,20 @@ function App() {
       <h1 className='my-4 text-center text-white'>Explore NFTs on the<br />Kalina Marketspace</h1>
       <Row>
         <Col>
+          {balance > 0 ? (
+            <div className='text-center'>
+              <img 
+              src={`https://gateway.pinata.cloud/ipfs/QmQPEMsfd1tJnqYPbnTQCjoa8vczfsV1FmqZWgRdNQ7z3g/{balance.toString()}`.png} 
+              alt="Open Punk"
+              width="400px"
+              height="400px"
+              />
+            </div>
+          ) : (
           <img src={preview} alt="Punks"/>
+          )}
+
+          
         </Col>
         <Col>
         <div className='my-4 text-center text-red'>
@@ -94,7 +108,14 @@ function App() {
           maxSupply={maxSupply}
           totalSupply={totalSupply}
           cost={cost}
-          balance={balance} />
+          balance={balance}
+        />
+        <Mint 
+          provider={provider}
+          nft={nft}
+          cost={cost}
+          setIsLoading={isLoading}
+        />
         </Col>
       </Row>
       {isLoading ? (
