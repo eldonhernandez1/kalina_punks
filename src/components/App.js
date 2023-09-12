@@ -10,7 +10,7 @@ import Mint from './Mint';
 import Loading from './Loading';
 
 // Hero image
-import Hero from './Hero';
+import Hero from '../hero.png'
 
 // Preview image
 import preview from '../preview.png'
@@ -77,17 +77,22 @@ function App() {
   return(
     <Container>
       <Navigation account={account} />
-      <Row> console.log(Hero image not showing.)
-        <Hero />
+      <Row>
+      <img src={Hero} alt="Punks"/>
       </Row>
       
       <h1 className='my-4 text-center text-white'>Explore NFTs on the<br />Kalina Marketspace</h1>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <>
+
       <Row>
         <Col>
           {balance > 0 ? (
             <div className='text-center'>
               <img 
-              src={`https://gateway.pinata.cloud/ipfs/QmQPEMsfd1tJnqYPbnTQCjoa8vczfsV1FmqZWgRdNQ7z3g/{balance.toString()}`.png} 
+              src={`https://gateway.pinata.cloud/ipfs/QmQPEMsfd1tJnqYPbnTQCjoa8vczfsV1FmqZWgRdNQ7z3g/${balance.toString()}.png`} 
               alt="Open Punk"
               width="400px"
               height="400px"
@@ -101,7 +106,6 @@ function App() {
         </Col>
         <Col>
         <div className='my-4 text-center text-red'>
-          console.log(countdown not showing);
           <Countdown date={parseInt(revealTime)} className='h2' />
         </div> 
         <Data 
@@ -114,15 +118,11 @@ function App() {
           provider={provider}
           nft={nft}
           cost={cost}
-          setIsLoading={isLoading}
+          setIsLoading={setIsLoading}
         />
         </Col>
       </Row>
-      {isLoading ? (
-        <Loading />
-      ) : (
-        <>
-          <p className='text-center'>Edit App.js to add your code here.</p>
+          {/* <p className='text-center'>Edit App.js to add your code here.</p> */}
         </>
       )}
     </Container>
