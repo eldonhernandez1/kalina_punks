@@ -51,8 +51,9 @@ function App() {
 
     // Fetch countdown
     const allowMintingOn = await nft.allowMintingOn()
-    setRevealTime(allowMintingOn.toString() + '000')
+    setRevealTime((allowMintingOn.toNumber() + 120) * 1000);
 
+    console.log('Countdown not loading', revealTime)
     // Fetch maxSupply
     setMaxSupply(await nft.maxSupply())
 
@@ -78,15 +79,15 @@ function App() {
     <Container>
       <Navigation account={account} />
       <Row>
-      <img src={Hero} alt="Punks"/>
+      <img src={Hero} style={{ borderRadius: '50px' }} alt="Kalina Marketspace Hero"/>
       </Row>
       
-      <h1 className='my-4 text-center text-white'>Explore NFTs on the<br />Kalina Marketspace</h1>
+      <h1 className='my-5 text-center text-white'>Mint NFTs on the<br />Kalina Marketspace</h1>
+      <h2 className='py-2 mx-3 text-white'>Top Collection this week</h2>
       {isLoading ? (
         <Loading />
       ) : (
         <>
-
       <Row>
         <Col>
           {balance > 0 ? (
@@ -96,33 +97,48 @@ function App() {
               alt="Open Punk"
               width="400px"
               height="400px"
+              style={{ borderRadius: '30px' }} 
               />
             </div>
           ) : (
-          <img src={preview} alt="Punks"/>
-          )}
-
+          <div className='text-center'><img src={preview} alt="Minted Punks" style={{ borderRadius: '30px' }}/></div>
           
+          )}
         </Col>
         <Col>
-        <div className='my-4 text-center text-red'>
-          <Countdown date={parseInt(revealTime)} className='h2' />
-        </div> 
-        <Data 
+        <div className='my-5 text-center text-white'>
+          <Countdown date={parseInt(revealTime)} className='h2' /><br />
+         <Data 
           maxSupply={maxSupply}
           totalSupply={totalSupply}
           cost={cost}
           balance={balance}
         />
+
         <Mint 
           provider={provider}
           nft={nft}
           cost={cost}
           setIsLoading={setIsLoading}
         />
+         
+        </div> 
         </Col>
       </Row>
-          {/* <p className='text-center'>Edit App.js to add your code here.</p> */}
+      <Row>
+      <Col>
+      <div className='my-4 text-left text-white'>
+      <h2 className='py-2 text-white'>Who we are</h2>
+        <p>Digital marketspace for non-fungible tokens (NFTs) and crypto collectibles. Purchase, sell, and find unique digital goods.</p>
+      </div> 
+      </Col>
+      <Col>
+      <div className='my-4 text-left text-white'>
+      <h2 className='py-2 text-white'>Create a drop</h2>
+        <p>Make a drop. Make waves. Reach audiences interested in your project. You can do all of that here.</p>
+      </div>             
+      </Col>
+      </Row>  
         </>
       )}
     </Container>
