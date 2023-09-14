@@ -83,7 +83,7 @@ function App() {
       </Row>
       
       <h1 className='my-5 text-center text-white'>Mint NFTs on the<br />Kalina Marketspace</h1>
-      <h2 className='py-2 mx-3 text-white'>Top Collection this week</h2>
+      <h2 className='py-2 mx-3 text-white'>Top Collection this Week</h2>
       {isLoading ? (
         <Loading />
       ) : (
@@ -91,7 +91,7 @@ function App() {
       <Row>
         <Col>
           {balance > 0 ? (
-            <div className='text-center'>
+            <div>
               <img 
               src={`https://gateway.pinata.cloud/ipfs/QmQPEMsfd1tJnqYPbnTQCjoa8vczfsV1FmqZWgRdNQ7z3g/${balance.toString()}.png`} 
               alt="Open Punk"
@@ -101,7 +101,7 @@ function App() {
               />
             </div>
           ) : (
-          <div className='text-center'><img src={preview} alt="Minted Punks" style={{ borderRadius: '30px' }}/></div>
+          <img src={preview} alt="Minted Punks" style={{ borderRadius: '30px' }}/>
           
           )}
         </Col>
