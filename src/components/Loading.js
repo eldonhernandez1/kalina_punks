@@ -2,9 +2,9 @@ import Spinner from 'react-bootstrap/Spinner';
 
 const Loading = () => {
     return (
-        <div className='text-center my-5'>
+        <div className='text-center my-5 text-white'>
             <Spinner animation="grow" />
-            <p className='my-2'>Loading Data...</p>
+            <p className='my-2 text-white'>Loading Data...</p>
         </div>
     );
 }
