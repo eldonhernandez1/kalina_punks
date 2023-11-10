@@ -93,7 +93,7 @@ function App() {
           {balance > 0 ? (
             <div>
               <img 
-              src={`https://gateway.pinata.cloud/ipfs/QmQPEMsfd1tJnqYPbnTQCjoa8vczfsV1FmqZWgRdNQ7z3g/${balance.toString()}.png`} 
+              src={`ipfs://bafybeihofqw6zf4tlhr53sibo5sbxh7twggwmmpqvqz2g4zhltvireha4i/${balance.toString()}.png`} 
               alt="Open Punk"
               width="400px"
               height="400px"

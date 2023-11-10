@@ -21,7 +21,7 @@ const Navigation = ({ account }) => {
         height="40"
         className="d-inline-block align-top mx-0"
       />
-      <Navbar.Brand className='text-white' href="#">Kalina Marketspace</Navbar.Brand>
+      <Navbar.Brand className='text-white' href="#">Kalina NFT Marketspace</Navbar.Brand>
       <Navbar.Collapse className="justify-content-end text-white">
         <Navbar.Text className='text-white'>
           {shortenAccount(account)}

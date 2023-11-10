@@ -53,7 +53,7 @@ contract NFT is ERC721Enumerable, Ownable {
     }
 
     // Return metadata IPFS url
-    // EG: 'ipfs://QmQ2jnDYecFhrf3asEWjyjZRX1pZSsNWG3qHzmNDvXa9qg/1.json'
+    // EG: 'ipfs://bafybeihofqw6zf4tlhr53sibo5sbxh7twggwmmpqvqz2g4zhltvireha4i/1.json'
     function tokenURI(uint256 _tokenId)
         public
         view
