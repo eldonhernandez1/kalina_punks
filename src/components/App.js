@@ -82,8 +82,6 @@ function App() {
       <img src={Hero} style={{ borderRadius: '50px' }} alt="Kalina Marketspace Hero"/>
       </Row>
       
-      <h1 className='my-5 text-center text-white'>Mint NFTs on the<br />Kalina Marketspace</h1>
-      <h2 className='py-2 mx-3 text-white'>Top Collection this Week</h2>
       {isLoading ? (
         <Loading />
       ) : (
