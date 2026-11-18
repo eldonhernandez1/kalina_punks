@@ -34,39 +34,50 @@ function App() {
   const [balance, setBalance] = useState(0)
 
   const [isLoading, setIsLoading] = useState(true)
+  const [noWallet, setNoWallet] = useState(false)
 
   const loadBlockchainData = async () => {
-    // Initiate provider
-    const provider = new ethers.providers.Web3Provider(window.ethereum)
-    setProvider(provider)
+    try {
+      if (typeof window.ethereum === 'undefined') {
+        throw new Error('No wallet extension detected')
+      }
 
-    // Initiate contract
-    const nft = new ethers.Contract(config[31337].nft.address, NFT_ABI, provider)
-    setNFT(nft)
+      // Initiate provider
+      const provider = new ethers.providers.Web3Provider(window.ethereum)
+      setProvider(provider)
 
-    // Fetch accounts
-    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
-    const account = ethers.utils.getAddress(accounts[0])
-    setAccount(account)
+      // Initiate contract
+      const nft = new ethers.Contract(config[31337].nft.address, NFT_ABI, provider)
+      setNFT(nft)
 
-    // Fetch countdown
-    const allowMintingOn = await nft.allowMintingOn()
-    setRevealTime((allowMintingOn.toNumber() + 120) * 1000);
+      // Fetch accounts
+      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
+      const account = ethers.utils.getAddress(accounts[0])
+      setAccount(account)
 
-    console.log('Countdown not loading', revealTime)
-    // Fetch maxSupply
-    setMaxSupply(await nft.maxSupply())
+      // Fetch countdown
+      const allowMintingOn = await nft.allowMintingOn()
+      setRevealTime((allowMintingOn.toNumber() + 120) * 1000);
 
-    // Fetch totalSupply
-    setTotalSupply(await nft.totalSupply())
+      console.log('Countdown not loading', revealTime)
+      // Fetch maxSupply
+      setMaxSupply(await nft.maxSupply())
 
-    // Fetch cost
-    setCost(await nft.cost())
+      // Fetch totalSupply
+      setTotalSupply(await nft.totalSupply())
 
-    // Fetch account balance
-    setBalance(await nft.balanceOf(account))
+      // Fetch cost
+      setCost(await nft.cost())
 
-    setIsLoading(false)
+      // Fetch account balance
+      setBalance(await nft.balanceOf(account))
+
+      setIsLoading(false)
+    } catch (error) {
+      console.error(error)
+      setNoWallet(true)
+      setIsLoading(false)
+    }
   }
 
   useEffect(() => {
@@ -84,6 +95,15 @@ function App() {
       
       {isLoading ? (
         <Loading />
+      ) : noWallet ? (
+        <Row>
+          <Col>
+            <div className='my-5 text-center text-white'>
+              <h2>Install MetaMask to view this demo</h2>
+              <p>This project connects to a local blockchain through a browser wallet. Install the <a href="https://metamask.io/" target="_blank" rel="noopener noreferrer">MetaMask</a> extension to interact with it.</p>
+            </div>
+          </Col>
+        </Row>
       ) : (
         <>
       <Row>

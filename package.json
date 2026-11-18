@@ -2,6 +2,7 @@
   "name": "kalina_punks",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://eldonhernandez1.github.io/kalina_punks",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
@@ -40,6 +41,7 @@
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^1.0.2",
+    "gh-pages": "^6.3.0",
     "hardhat": "^2.10.1"
   }
 }
