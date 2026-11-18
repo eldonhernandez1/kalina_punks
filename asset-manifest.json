@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/kalina_punks/static/css/main.e96d7c4c.css",
-    "main.js": "/kalina_punks/static/js/main.44c3ae29.js",
+    "main.js": "/kalina_punks/static/js/main.4cabc302.js",
     "static/js/787.ea124a01.chunk.js": "/kalina_punks/static/js/787.ea124a01.chunk.js",
     "static/media/hero.png": "/kalina_punks/static/media/hero.7f52c6e48b7c4ae3fb91.png",
     "static/media/preview.png": "/kalina_punks/static/media/preview.75db5f75d575e4a8492e.png",
@@ -9,11 +9,11 @@
     "static/media/logo.png": "/kalina_punks/static/media/logo.5cfc8d20903643fb83a8.png",
     "index.html": "/kalina_punks/index.html",
     "main.e96d7c4c.css.map": "/kalina_punks/static/css/main.e96d7c4c.css.map",
-    "main.44c3ae29.js.map": "/kalina_punks/static/js/main.44c3ae29.js.map",
+    "main.4cabc302.js.map": "/kalina_punks/static/js/main.4cabc302.js.map",
     "787.ea124a01.chunk.js.map": "/kalina_punks/static/js/787.ea124a01.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e96d7c4c.css",
-    "static/js/main.44c3ae29.js"
+    "static/js/main.4cabc302.js"
   ]
 }
